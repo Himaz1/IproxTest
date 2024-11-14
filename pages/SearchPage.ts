@@ -8,6 +8,7 @@ export class SearchPage
     readonly tf_searchFeild;
     readonly btn_searchButton;
     readonly searchResultText;
+    readonly resultCount;
 
 
     constructor (page: Page)
@@ -18,6 +19,7 @@ export class SearchPage
         this.tf_searchFeild = page.getByLabel('Zoekterm');
         this.btn_searchButton = page.getByRole('button', { name: 'Zoeken' });
         this.searchResultText = page.getByRole('link', { name: 'Dossier Woo-besluit' }).first();
+        this.resultCount = page.getByText('2 resultaten worden getoond');
     }
 
     async goto()

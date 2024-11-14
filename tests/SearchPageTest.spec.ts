@@ -10,6 +10,10 @@ test.only('Verify search results', async ({page}) => {
     await expect(searchPage.tf_searchFeild).toBeVisible();
     await searchPage.enterSearchTerm("locatie in Groningen");
     await searchPage.clickSearchButton();
+
+    const element = await searchPage.resultCount;
+    const textContent = await element.textContent();
+    await expect(textContent).not.toContain('0');
     await expect(searchPage.searchResultText).toContainText("locatie in Groningen");
     
 })
