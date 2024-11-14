@@ -13,7 +13,7 @@ test.only('Verify search results', async ({page}) => {
 
     const element = await searchPage.resultCount;
     const textContent = await element.textContent();
-    await expect(textContent).not.toContain('0');
+    expect(textContent).not.toContain('0');
     await expect(searchPage.searchResultText).toContainText("locatie in Groningen");
     
 })
